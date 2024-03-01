@@ -1,0 +1,1 @@
+Me learning Go because it's C like and looks like fun
