@@ -4,12 +4,18 @@ import "fmt"
 
 func main() {
 
-	fmt.Println("go" + "lang")
-	fmt.Println(1 + 4)
-	fmt.Println("1+1 =", 1+1)
-	fmt.Println("7.0/3.0 =", 7.0/3.0)
+	var a = "PLEASE DON'T USE a AS A VARIABLE NAME!"
+	fmt.Println(a)
 
-	fmt.Println(true && false)
-	fmt.Println(true || false)
-	fmt.Println(!true)
+	var b, c int = 1, 2 //GO infers the type of initialized variables
+	fmt.Println(b, c)
+
+	var d = true
+	fmt.Println(d)
+
+	var e int //GO assigns a default value to uninitialized variables
+	fmt.Println(e)
+
+	f := "apple"
+	fmt.Println(f)
 }
