@@ -5,7 +5,7 @@ import "fmt"
 func main() {
 
 	var a = "PLEASE DON'T USE a AS A VARIABLE NAME!"
-	fmt.Println(a)
+	fmt.Println(a) //GO is case sensitive
 
 	var b, c int = 1, 2 //GO infers the type of initialized variables
 	fmt.Println(b, c)
