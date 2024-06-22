@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	type person struct {
@@ -13,6 +15,7 @@ func main() {
 		email      string
 		phone      string
 		address    string
+		race       string
 	}
 
 	var p1 person
@@ -25,6 +28,7 @@ func main() {
 	p1.weightLb = 160
 	p1.heightInch = 72
 	p1.gender = "male"
+	p1.race = "white"
 
 	fmt.Println(p1)
 	fmt.Println("Hi your name is", p1.name, "and you are", p1.age, "years old.")
@@ -33,4 +37,30 @@ func main() {
 	p3 := person{}           // shorthand
 	fmt.Println(p2)
 	fmt.Println(p3)
+	p3.name = "Latisha"
+	p3.age = 30
+	p3.address = "456 Elm St"
+	p3.race = "black"
+	p3.gender = "female"
+	p3.eyeColor = "brown"
+	fmt.Println(p3)
+
+	//Car example
+	type wheel struct {
+		radius   int
+		material string
+	}
+
+	type car struct {
+		make       string
+		model      string
+		doors      int
+		mileage    int
+		frontWheel wheel
+		backWheel  wheel
+	}
+
+	myCar := car{}
+	myCar.frontWheel.radius = 5
+	fmt.Println(myCar)
 }
