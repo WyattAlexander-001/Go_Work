@@ -25,23 +25,27 @@ func main() {
 
 	reader := bufio.NewReader(os.Stdin)
 
-	fmt.Print("Make a guess dude:")
-	input, err := reader.ReadString('\n')
-	if err != nil {
-		log.Fatal(err)
-	}
-	input = strings.TrimSpace(input)
-	guess, err := strconv.Atoi(input)
-	if err != nil {
-		log.Fatal(err)
-	}
+	for guesses := 0; guesses < 10; guesses++ {
+		fmt.Print("Make a guess dude, you're on guess #: ", guesses+1)
+		fmt.Println("")
+		input, err := reader.ReadString('\n')
+		if err != nil {
+			log.Fatal(err)
+		}
+		input = strings.TrimSpace(input)
+		guess, err := strconv.Atoi(input)
+		if err != nil {
+			log.Fatal(err)
+		}
 
-	if guess < target {
-		fmt.Println("Your guess is too low!")
-	} else if guess > target {
-		fmt.Println("Your guess is too high!")
-	} else {
-		fmt.Println("You got it!")
+		if guess < target {
+			fmt.Println("Your guess is too low!")
+		} else if guess > target {
+			fmt.Println("Your guess is too high!")
+		} else {
+			fmt.Println("You got it!")
+		}
 	}
+	fmt.Println("Sorry, you didn't get it. The number was:", target)
 
 }
