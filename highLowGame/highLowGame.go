@@ -24,7 +24,7 @@ func main() {
 	fmt.Println("DEBUG, Target:", target)
 
 	reader := bufio.NewReader(os.Stdin)
-
+	success := false
 	for guesses := 0; guesses < 10; guesses++ {
 		fmt.Print("Make a guess dude, you're on guess #: ", guesses+1)
 		fmt.Println("")
@@ -44,8 +44,10 @@ func main() {
 			fmt.Println("Your guess is too high!")
 		} else {
 			fmt.Println("You got it!")
+			break
 		}
 	}
-	fmt.Println("Sorry, you didn't get it. The number was:", target)
-
+	if !success {
+		fmt.Println("Sorry, you didn't guess the number. It was:", target)
+	}
 }
