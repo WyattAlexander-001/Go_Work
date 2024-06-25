@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func Greet() {
+func greet() {
 	fmt.Println("Hello!")
 }
 
@@ -14,10 +14,18 @@ func Greet() {
 // 	fmt.Println("Hello", name)
 // }
 
-func GreetByName(name string) {
+func greetByName(name string) {
 	fmt.Println("Hello", name)
 }
 
-func main() {
+func greetByNameXTimes(name string, times int) {
+	for i := 0; i < times; i++ {
+		fmt.Println("Hello", name)
+	}
+}
 
+func main() {
+	greet()
+	greetByName("Gopher")
+	greetByNameXTimes("Jimmy", 5)
 }
