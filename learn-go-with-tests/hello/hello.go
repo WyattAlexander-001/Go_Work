@@ -8,7 +8,11 @@ func Hello() string {
 }
 
 func HelloName(name string) string {
+	if name == "" {
+		name = "world"
+	}
 	return "Hello, " + name
+
 }
 
 func IdealHello(name string, language string) string {
