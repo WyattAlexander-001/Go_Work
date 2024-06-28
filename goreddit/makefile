@@ -7,7 +7,7 @@ adminer:
 	docker run --rm -d --network mynetwork -p 8081:8080 adminer
 
 migrate:
-	docker run --rm --network mynetwork -v $(pwd)/migrations:/migrations migrate-tool -source file://migrations -database postgres://postgres:secret@postgres_new:5433/postgres?sslmode=disable up
+	docker run --rm --network mynetwork -v /Users/absinthe/migrations:/migrations migrate-tool -source file://migrations -database postgres://postgres:secret@postgres_new:5433/postgres?sslmode=disable up
 
 clean:
 	-docker stop focused_kapitsa || true
