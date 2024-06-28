@@ -21,20 +21,30 @@ func helloHandler(w http.ResponseWriter, r *http.Request) { // Request = Client 
 }
 
 func formHandler(w http.ResponseWriter, r *http.Request) {
-	if err := r.ParseForm(); err != nil {
-		fmt.Fprintf(w, "ParseForm() err: %v", err)
+	if r.Method == "GET" {
+		http.ServeFile(w, r, "./static/form.html")
 		return
 	}
-	fmt.Fprintf(w, "POST request successful\n")
-	name := r.FormValue("name")
-	address := r.FormValue("address")
-	fmt.Fprintf(w, "Name = %s\n", name)
-	fmt.Fprintf(w, "Address = %s\n", address)
 
+	if r.Method == "POST" {
+		if err := r.ParseForm(); err != nil {
+			fmt.Fprintf(w, "ParseForm() err: %v", err)
+			return
+		}
+		fmt.Fprintf(w, "POST request successful\n")
+		name := r.FormValue("name")
+		address := r.FormValue("address")
+		fmt.Fprintf(w, "Name = %s\n", name)
+		fmt.Fprintf(w, "Address = %s\n", address)
+		return
+	}
+
+	http.Error(w, "Method is not supported.", http.StatusNotFound)
 }
 
 func main() {
 	fileServer := http.FileServer(http.Dir("./static"))
+	// These are the endpoints that the server will respond to
 	http.Handle("/", fileServer)            // Serve static files from the /static directory
 	http.HandleFunc("/form", formHandler)   // Handle requests to the /form endpoint
 	http.HandleFunc("/hello", helloHandler) // Handle requests to the /hello endpoint
