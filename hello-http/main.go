@@ -1,3 +1,4 @@
+// This project simply creates a server that listens on port 80 and responds with the path that was requested
 package main
 
 import (
