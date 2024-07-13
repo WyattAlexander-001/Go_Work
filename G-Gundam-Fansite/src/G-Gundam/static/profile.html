@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/styles.css">
-    <title>Create Your Gundam</title>
+    <title>Profile</title>
 </head>
 <body>
     <nav>
@@ -16,22 +16,12 @@
         <a href="/about">About</a>
         <a href="/contact">Contact</a>
     </nav>
-    <h1>Create Your Gundam</h1>
-    <form action="/create-gundam" method="post">
-        <label for="name">Gundam Name:</label><br>
-        <input type="text" id="name" name="name"><br>
-        <label for="pilot">Pilot Name:</label><br>
-        <input type="text" id="pilot" name="pilot"><br>
-        <input type="submit" value="Submit">
-    </form>
-
-    <h2>Custom Gundams</h2>
+    <h1>Profile</h1>
     <ul>
         {{range .}}
-        <li><strong>Gundam:</strong> {{.GundamName}}, <strong>Pilot:</strong> {{.PilotName}}</li>
+        <li><strong>Username:</strong> {{.Username}}, <strong>Full Name:</strong> {{.Profile.FullName}}, <strong>Email:</strong> {{.Profile.Email}}, <strong>Age:</strong> {{.Profile.Age}}</li>
         {{end}}
     </ul>
-
     <script src="../scripts/app.js"></script>
 </body>
 </html>
